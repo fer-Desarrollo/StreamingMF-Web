@@ -59,4 +59,44 @@ class Auth extends CI_Controller {
             'password_temporal' => $u->password_temporal
         ]);
     }
+    
+    public function cambiar_password()
+    {
+        // 🔐 Usuario autenticado por JWT
+        $user = $this->auth_user;
+    
+        $input = json_decode($this->input->raw_input_stream, true);
+    
+        if (!$input || empty($input['password'])) {
+            return $this->output
+                ->set_status_header(400)
+                ->set_output(json_encode([
+                    'error' => 'La nueva contraseña es obligatoria'
+                ]));
+        }
+    
+        // Validación mínima
+        if (strlen($input['password']) < 8) {
+            return $this->output
+                ->set_status_header(400)
+                ->set_output(json_encode([
+                    'error' => 'La contraseña debe tener al menos 8 caracteres'
+                ]));
+        }
+    
+        $password_hash = password_hash($input['password'], PASSWORD_BCRYPT);
+    
+        $this->Usuario_model->cambiar_password(
+            $user['id_usuario'],
+            $password_hash
+        );
+    
+        return $this->output
+            ->set_status_header(200)
+            ->set_output(json_encode([
+                'success' => true,
+                'message' => 'Contraseña actualizada correctamente'
+            ]));
+    }
+    
 }
