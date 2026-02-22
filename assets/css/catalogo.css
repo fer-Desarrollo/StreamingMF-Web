@@ -1,0 +1,189 @@
+/* =========================================
+   ESTILOS DEL CATÁLOGO (MODO CLARO Y ELEGANTE)
+   ========================================= */
+
+.catalogo-main {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f3f4f6;
+    margin-top: 20px;
+}
+
+.catalogo-header {
+    margin-bottom: 30px;
+}
+
+.catalogo-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 8px;
+}
+
+.catalogo-header p {
+    color: #6b7280;
+    font-size: 16px;
+}
+
+/* Cuadrícula de Pósters */
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 24px;
+}
+
+.movie-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #f9fafb;
+    aspect-ratio: 2 / 3;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid #e5e7eb;
+}
+
+.movie-card:hover {
+    transform: translateY(-8px) scale(1.02); /* Flota y crece un poco */
+    box-shadow: 0 15px 30px rgba(204, 0, 0, 0.15); /* Sombra con el rojo de tu marca */
+    border-color: #fde8e8;
+    z-index: 2;
+}
+
+.movie-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.loading-movies {
+    text-align: center;
+    font-size: 18px;
+    color: #6b7280;
+    padding: 50px;
+    grid-column: 1 / -1;
+}
+
+/* =========================================
+   VENTANA DE DETALLE (OVERLAY CLARO)
+   ========================================= */
+.detalle-overlay {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background-color: #f4f6f8; /* Fondo general gris muy sutil */
+    z-index: 9998;
+    overflow-y: auto;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.detalle-overlay.active {
+    transform: translateY(0);
+}
+
+/* Botón de volver al catálogo */
+.btn-cerrar-detalle {
+    position: absolute; top: 30px; left: 40px;
+    background: #ffffff; border: 1px solid #d1d5db; color: #374151;
+    font-size: 14px; font-weight: 500; padding: 10px 20px; border-radius: 8px;
+    cursor: pointer; display: flex; align-items: center; gap: 8px;
+    transition: all 0.2s; z-index: 10;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.btn-cerrar-detalle:hover {
+    color: #cc0000;
+    border-color: #cc0000;
+    background-color: #fef2f2;
+}
+
+/* Tarjeta principal con la info de la peli */
+.detalle-content {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    display: flex; gap: 40px; padding: 50px; max-width: 1000px;
+    margin: 100px auto 50px auto; /* El margin-top deja espacio al botón Volver */
+    flex-wrap: wrap;
+    border: 1px solid #f3f4f6;
+}
+
+.detalle-poster {
+    flex: 1; min-width: 250px; max-width: 300px;
+}
+
+.detalle-poster img {
+    width: 100%; border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.detalle-info {
+    flex: 2; min-width: 300px; color: #111827;
+}
+
+.detalle-info h1 {
+    font-size: 32px; font-weight: 700; margin-bottom: 12px; color: #111827;
+}
+
+.detalle-meta {
+    display: flex; align-items: center; gap: 15px; margin-bottom: 20px;
+    font-size: 14px; color: #4b5563; font-weight: 500;
+}
+
+.meta-badge {
+    border: 1px solid #d1d5db; padding: 4px 8px; border-radius: 6px;
+    background-color: #f9fafb; color: #374151; font-weight: 600;
+}
+
+.detalle-sinopsis {
+    font-size: 15px; line-height: 1.6; margin-bottom: 25px; color: #4b5563;
+}
+
+.detalle-extra {
+    background-color: #f9fafb; padding: 15px; border-radius: 10px; border: 1px solid #e5e7eb;
+}
+
+.detalle-extra p {
+    margin-bottom: 8px; color: #6b7280; font-size: 14px;
+}
+
+.detalle-extra p:last-child { margin-bottom: 0; }
+.detalle-extra strong { color: #111827; font-weight: 600; }
+
+/* Botón Reproducir (Estilo Rojo StreamingMF) */
+.btn-play {
+    background: linear-gradient(135deg, #e60000 0%, #b30000 100%);
+    color: #ffffff; border: none; padding: 12px 28px;
+    border-radius: 10px; font-size: 15px; font-weight: 600; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 10px; margin-top: 25px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-play:hover {
+    transform: translateY(-2px); box-shadow: 0 8px 20px rgba(230,0,0,0.3);
+}
+
+/* =========================================
+   REPRODUCTOR YOUTUBE (Fondo oscuro para ver bien el video)
+   ========================================= */
+.reproductor-overlay {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background-color: rgba(0,0,0,0.95); z-index: 9999;
+    display: flex; justify-content: center; align-items: center;
+    opacity: 0; visibility: hidden; transition: opacity 0.3s;
+}
+.reproductor-overlay.active { opacity: 1; visibility: visible; }
+
+.btn-cerrar-reproductor {
+    position: absolute; top: 20px; right: 30px; background: none; border: none;
+    color: #ffffff; font-size: 40px; cursor: pointer; transition: color 0.2s;
+}
+.btn-cerrar-reproductor:hover { color: #cc0000; }
+
+.video-container { 
+    width: 80%; max-width: 1000px; aspect-ratio: 16/9; background: #000; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5); border-radius: 12px; overflow: hidden; 
+}
+.video-container iframe { width: 100%; height: 100%; }

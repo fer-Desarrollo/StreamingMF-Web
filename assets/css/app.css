@@ -1,0 +1,395 @@
+/* Importar una fuente limpia y moderna (opcional pero recomendado) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Fondo general de la página */
+.auth-body {
+    background-color: #f4f6f8; /* Un gris muy claro para hacer contraste con la tarjeta blanca */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Contenedor del Login */
+.login-card {
+    background-color: #ffffff; /* Blanco puro */
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Sombra muy suave para elegancia */
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+}
+
+/* Ajustes del Logo */
+.login-card .logo {
+    max-width: 200px; /* Ajusta este valor según prefieras */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Título */
+.login-card h2 {
+    color: #111827; /* Negro suave */
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+/* Grupos de Inputs */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Íconos de FontAwesome */
+.input-group i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+/* Campos de texto */
+.input-group input {
+    width: 100%;
+    padding: 14px 14px 14px 45px; /* El padding izquierdo deja espacio para el ícono */
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 15px;
+    color: #1f2937;
+    background-color: #f9fafb;
+    transition: all 0.3s ease;
+}
+
+/* Efecto al hacer clic en el input */
+.input-group input:focus {
+    border-color: #cc0000; /* Rojo oscuro basado en tu logo */
+    background-color: #ffffff;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(204, 0, 0, 0.1); /* Resplandor rojo suave */
+}
+
+/* Cambiar el color del ícono cuando el input está seleccionado */
+.input-group:focus-within i {
+    color: #cc0000;
+}
+
+/* Botón de Acceder */
+.login-card button {
+    width: 100%;
+    background: linear-gradient(135deg, #e60000 0%, #b30000 100%); /* Degradado rojo elegante */
+    color: #ffffff;
+    border: none;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efecto Hover del botón */
+.login-card button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(230, 0, 0, 0.25);
+}
+
+/* Efecto Click del botón */
+.login-card button:active {
+    transform: translateY(0);
+}
+
+/* --- ESTILOS DEL DASHBOARD Y NAVEGACIÓN --- */
+
+.admin-body {
+    background-color: #f4f6f8; /* Mismo fondo gris sutil para que el contenido resalte */
+    font-family: 'Inter', -apple-system, sans-serif;
+}
+
+/* Contenedor del Header */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    height: 70px;
+    padding: 0 40px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    margin-bottom: 0; /* Asegurar que no hay margen inferior */
+}
+
+.main-content {
+    padding: 0 40px 20px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Marca / Logo en texto */
+.main-header .brand {
+    font-size: 22px;
+    font-weight: 700;
+    color: #111827; /* Negro oscuro */
+    letter-spacing: -0.5px;
+}
+
+/* Resaltar "MF" con el rojo de tu logo */
+.main-header .brand span {
+    color: #cc0000; 
+    font-style: italic; /* Opcional, le da un toque dinámico como las líneas de tu logo */
+}
+
+/* Navegación */
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 24px; /* Espacio entre los enlaces */
+}
+
+/* Enlaces del menú */
+.main-nav a {
+    text-decoration: none;
+    color: #6b7280; /* Gris intermedio */
+    font-size: 14px;
+    font-weight: 500;
+    position: relative;
+    padding: 8px 0;
+    transition: color 0.3s ease;
+}
+
+/* Efecto hover y enlace activo */
+.main-nav a:hover, 
+.main-nav a.active {
+    color: #111827; /* Se oscurece al pasar el mouse */
+}
+
+/* Línea animada debajo del enlace al pasar el mouse */
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #cc0000; /* Línea roja elegante */
+    transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after,
+.main-nav a.active::after {
+    width: 100%;
+}
+
+/* Separador visual antes del botón de salir */
+.nav-divider {
+    width: 1px;
+    height: 24px;
+    background-color: #e5e7eb;
+    margin: 0 8px;
+}
+
+/* Estilo especial para el botón de Salir */
+.main-nav a.logout-btn {
+    color: #dc2626; /* Rojo de alerta sutil */
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background-color: rgba(220, 38, 38, 0.05); /* Fondo rojo muy transparente */
+}
+
+/* Quitar la línea inferior animada del botón de salir */
+.main-nav a.logout-btn::after {
+    display: none; 
+}
+
+.main-nav a.logout-btn:hover {
+    background-color: rgba(220, 38, 38, 0.1);
+    color: #b91c1c;
+}
+
+/* =========================================
+   ESTILOS DEL DASHBOARD (MENÚ PRINCIPAL)
+   ========================================= */
+
+/* Encabezado de la página */
+.page-header {
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.page-header h1 {
+    color: #111827;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    color: #6b7280;
+    font-size: 16px;
+}
+
+/* Cuadrícula del menú (Responsive) */
+.menu-grid {
+    display: grid;
+    /* Crea columnas de mínimo 250px que se ajustan solas al ancho disponible */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 24px;
+}
+
+/* Tarjeta individual */
+.menu-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 40px 24px;
+    text-align: center;
+    text-decoration: none; /* Quita el subrayado del enlace */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03); /* Sombra muy sutil */
+    border: 1px solid #f3f4f6;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Efecto Hover en la tarjeta */
+.menu-card:hover {
+    transform: translateY(-6px); /* Efecto de flotación */
+    box-shadow: 0 15px 30px rgba(204, 0, 0, 0.08); /* Sombra con un tinte rojo */
+    border-color: #fde8e8; /* Borde suavemente rojo */
+}
+
+/* Círculo contenedor del ícono */
+.menu-card .icon-wrapper {
+    width: 72px;
+    height: 72px;
+    background-color: #f4f6f8; /* Gris muy claro */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    color: #6b7280;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+/* Efecto Hover en el círculo del ícono */
+.menu-card:hover .icon-wrapper {
+    background-color: #cc0000; /* Rojo de StreamingMF */
+    color: #ffffff; /* Ícono blanco */
+    transform: scale(1.1); /* Crece ligeramente */
+}
+
+/* Título de la opción */
+.menu-card h3 {
+    color: #1f2937;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+/* El título se vuelve rojo al pasar el cursor */
+.menu-card:hover h3 {
+    color: #cc0000;
+}
+
+/* Descripción de la opción */
+.menu-card p {
+    color: #6b7280;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+}
+/* =========================================
+   ESTILOS DEL FOOTER SIMPLE
+   ========================================= */
+
+/* El estilo de tu clase .footer */
+.footer {
+    background-color: #ffffff;
+    border-top: 1px solid #e5e7eb;
+    text-align: center;
+    padding: 24px;
+    color: #6b7280;
+    font-size: 14px;
+    font-weight: 500;
+    width: 100%;
+    flex-shrink: 0; /* Evita que se encoja */
+}
+
+/* =========================================
+   ESTILOS DE LA TABLA Y MODAL (CONSULTA)
+   ========================================= */
+
+/* Tabla Elegante */
+.table-container { overflow-x: auto; margin-top: 20px; }
+.elegant-table { width: 100%; border-collapse: collapse; text-align: left; }
+.elegant-table th { background-color: #f9fafb; color: #6b7280; font-size: 13px; text-transform: uppercase; padding: 15px; border-bottom: 2px solid #e5e7eb; }
+.elegant-table td { padding: 15px; border-bottom: 1px solid #f3f4f6; color: #374151; font-size: 14px; vertical-align: middle; }
+.elegant-table tbody tr:hover { background-color: #f9fafb; transition: background-color 0.2s; }
+.text-center { text-align: center; }
+
+/* Miniaturas en la tabla */
+.movie-thumbnail { width: 60px; height: 85px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); background-color: #f3f4f6; }
+
+/* Badges de Estado */
+.badge { padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; display: inline-block; }
+.badge-active { background-color: #d1fae5; color: #065f46; } 
+.badge-inactive { background-color: #f3f4f6; color: #4b5563; } 
+
+/* Botones de acción en la tabla */
+.action-btn { background: none; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer; font-size: 16px; transition: all 0.2s; margin: 0 4px; display: inline-flex; align-items: center; justify-content: center; }
+.btn-edit { color: #3b82f6; background-color: rgba(59, 130, 246, 0.1); }
+.btn-edit:hover { background-color: #3b82f6; color: white; transform: translateY(-2px); }
+.btn-toggle-on { color: #10b981; background-color: rgba(16, 185, 129, 0.1); } 
+.btn-toggle-on:hover { background-color: #10b981; color: white; transform: translateY(-2px); }
+.btn-toggle-off { color: #ef4444; background-color: rgba(239, 68, 68, 0.1); } 
+.btn-toggle-off:hover { background-color: #ef4444; color: white; transform: translateY(-2px); }
+
+/* =========================================
+   DISEÑO DEL MODAL
+   ========================================= */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(17, 24, 39, 0.6); backdrop-filter: blur(4px);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 9999; opacity: 0; visibility: hidden; transition: all 0.3s ease;
+}
+.modal-overlay.active { opacity: 1; visibility: visible; }
+
+.modal-box {
+    background: #ffffff; border-radius: 16px; width: 90%; max-width: 800px;
+    max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+    transform: scale(0.95); transition: transform 0.3s ease;
+}
+.modal-overlay.active .modal-box { transform: scale(1); }
+
+.modal-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 30px; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; background: white; z-index: 10;
+}
+.modal-header h2 { font-size: 20px; color: #111827; margin: 0; font-weight: 600; }
+.btn-close-modal { background: none; border: none; font-size: 20px; color: #9ca3af; cursor: pointer; transition: color 0.2s; }
+.btn-close-modal:hover { color: #cc0000; }
+.modal-body { padding: 30px; }

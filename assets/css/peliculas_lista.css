@@ -1,0 +1,143 @@
+/* =========================================
+   ESTILOS ESPECÍFICOS: CONSULTA DE PELÍCULAS
+   Ubicación: assets/css/peliculas_lista.css
+   ========================================= */
+
+/* Tabla Elegante */
+.table-container { overflow-x: auto; margin-top: 20px; }
+.elegant-table { width: 100%; border-collapse: collapse; text-align: left; }
+.elegant-table th { background-color: #f9fafb; color: #6b7280; font-size: 13px; text-transform: uppercase; padding: 15px; border-bottom: 2px solid #e5e7eb; }
+.elegant-table td { padding: 15px; border-bottom: 1px solid #f3f4f6; color: #374151; font-size: 14px; vertical-align: middle; }
+.elegant-table tbody tr:hover { background-color: #f9fafb; transition: background-color 0.2s; }
+.text-center { text-align: center; }
+
+/* Miniaturas en la tabla */
+.movie-thumbnail { width: 60px; height: 85px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); background-color: #f3f4f6; }
+
+/* Badges de Estado */
+.badge { padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; display: inline-block; }
+.badge-active { background-color: #d1fae5; color: #065f46; } 
+.badge-inactive { background-color: #f3f4f6; color: #4b5563; } 
+
+/* Botones de acción en la tabla */
+.action-btn { background: none; border: none; padding: 8px 12px; border-radius: 8px; cursor: pointer; font-size: 16px; transition: all 0.2s; margin: 0 4px; display: inline-flex; align-items: center; justify-content: center; }
+.btn-edit { color: #3b82f6; background-color: rgba(59, 130, 246, 0.1); }
+.btn-edit:hover { background-color: #3b82f6; color: white; transform: translateY(-2px); }
+.btn-toggle-on { color: #10b981; background-color: rgba(16, 185, 129, 0.1); } 
+.btn-toggle-on:hover { background-color: #10b981; color: white; transform: translateY(-2px); }
+.btn-toggle-off { color: #ef4444; background-color: rgba(239, 68, 68, 0.1); } 
+.btn-toggle-off:hover { background-color: #ef4444; color: white; transform: translateY(-2px); }
+
+/* =========================================
+   DISEÑO DEL MODAL
+   ========================================= */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(17, 24, 39, 0.6); backdrop-filter: blur(4px);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 9999; opacity: 0; visibility: hidden; transition: all 0.3s ease;
+}
+.modal-overlay.active { opacity: 1; visibility: visible; }
+
+.modal-box {
+    background: #ffffff; border-radius: 16px; width: 90%; max-width: 800px;
+    max-height: 90vh; overflow-y: auto; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+    transform: scale(0.95); transition: transform 0.3s ease;
+}
+.modal-overlay.active .modal-box { transform: scale(1); }
+
+.modal-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 30px; border-bottom: 1px solid #e5e7eb; position: sticky; top: 0; background: white; z-index: 10;
+}
+.modal-header h2 { font-size: 20px; color: #111827; margin: 0; font-weight: 600; }
+.btn-close-modal { background: none; border: none; font-size: 20px; color: #9ca3af; cursor: pointer; transition: color 0.2s; }
+.btn-close-modal:hover { color: #cc0000; }
+.modal-body { padding: 30px; }
+
+
+/* =========================================
+   ESTILOS DE LOS CAMPOS DENTRO DEL MODAL
+   ========================================= */
+.form-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 15px; 
+}
+
+.form-group { 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.form-group label { 
+    font-size: 13px; 
+    font-weight: 500; 
+    color: #4b5563; 
+    margin-bottom: 6px; 
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea { 
+    padding: 10px 14px; 
+    border: 1px solid #d1d5db; 
+    border-radius: 8px; 
+    font-size: 14px; 
+    color: #1f2937; 
+    background-color: #f9fafb; 
+    font-family: inherit; 
+    width: 100%; 
+    box-sizing: border-box; 
+    transition: all 0.3s;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus { 
+    border-color: #cc0000; 
+    background-color: #ffffff; 
+    outline: none; 
+    box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.1); 
+}
+
+.full-width { 
+    grid-column: 1 / -1; 
+}
+
+.form-actions { 
+    display: flex; 
+    justify-content: flex-end; 
+    gap: 10px; 
+}
+
+/* Botones dentro del modal */
+.btn-primary { 
+    background: linear-gradient(135deg, #e60000 0%, #b30000 100%); 
+    color: #ffffff; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 8px; 
+    font-weight: 600; 
+    cursor: pointer; 
+    transition: transform 0.2s, box-shadow 0.2s; 
+}
+
+.btn-primary:hover { 
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 12px rgba(230,0,0,0.2); 
+}
+
+.btn-secondary { 
+    background-color: #f3f4f6; 
+    color: #374151; 
+    border: 1px solid #d1d5db; 
+    padding: 10px 20px; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    transition: background 0.2s; 
+}
+
+.btn-secondary:hover { 
+    background-color: #e5e7eb; 
+}

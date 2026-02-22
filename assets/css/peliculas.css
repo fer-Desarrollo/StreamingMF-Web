@@ -1,0 +1,264 @@
+/* =========================================
+   ESTILOS DE FORMULARIOS (REGISTRO DE PELÍCULAS, ETC.)
+   Pega esto al final de assets/css/app.css
+   ========================================= */
+
+/* Tarjeta contenedora del formulario */
+.form-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f3f4f6;
+    margin-top: 20px;
+}
+
+/* Títulos de las secciones del formulario */
+.form-section-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #cc0000; /* Rojo de tu marca */
+    margin: 30px 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.form-section-title:first-child {
+    margin-top: 0;
+}
+
+/* Cuadrícula para los campos (responsive) */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+/* Grupo de etiqueta + input */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+/* Estilos de los inputs, selects y textareas */
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    padding: 12px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #111827;
+    background-color: #f9fafb;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    width: 100%; /* Asegura que ocupen el ancho de su celda */
+}
+
+/* Efecto al hacer foco en un campo */
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    border-color: #cc0000;
+    background-color: #ffffff;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(204, 0, 0, 0.1);
+}
+
+/* Clase para campos que deben ocupar todo el ancho (como Sinopsis) */
+.full-width {
+    grid-column: 1 / -1;
+}
+
+/* Cuadrícula para los checkboxes de géneros */
+.genres-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 16px;
+    padding: 10px 0;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #374151;
+    cursor: pointer;
+    background-color: #f9fafb;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+
+.checkbox-label:hover {
+    background-color: #ffffff;
+    border-color: #e5e7eb;
+}
+
+/* Sección de subida de archivos y toggle */
+.media-upload-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    border-top: 1px solid #f3f4f6;
+}
+
+/* Caja grande para subir la miniatura */
+.upload-box {
+    flex: 2;
+    min-width: 300px;
+    border: 2px dashed #d1d5db;
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #f9fafb;
+    transition: all 0.3s;
+}
+
+.upload-box:hover {
+    border-color: #cc0000;
+    background-color: #fef2f2;
+}
+
+.upload-box i {
+    font-size: 40px;
+    color: #9ca3af;
+    margin-bottom: 16px;
+    display: block;
+    transition: color 0.3s;
+}
+
+.upload-box:hover i { color: #cc0000; }
+.upload-box p { margin: 0; font-size: 16px; color: #4b5563; font-weight: 500;}
+.upload-box span { display: block; margin-top: 8px; font-size: 13px; color: #6b7280; }
+
+/* Interruptor (Toggle Switch) para Destacada */
+.featured-toggle {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #111827;
+    background-color: #f9fafb;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 28px;
+    flex-shrink: 0;
+}
+
+.switch input { opacity: 0; width: 0; height: 0; }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #d1d5db;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px; width: 20px;
+    left: 4px; bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+input:checked + .slider { background-color: #cc0000; }
+input:checked + .slider:before { transform: translateX(24px); }
+
+/* Botones de acción al final del formulario */
+.form-actions {
+    margin-top: 50px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 30px;
+}
+
+/* Botón secundario (Volver/Cancelar) */
+.btn-secondary {
+    background-color: #ffffff;
+    color: #374151;
+    border: 1px solid #d1d5db;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-secondary:hover {
+    background-color: #f9fafb;
+    border-color: #9ca3af;
+    color: #111827;
+}
+
+/* =========================================
+   ESTILOS DEL BOTÓN PRINCIPAL (Guardar)
+   ========================================= */
+
+.btn-primary {
+    background: linear-gradient(135deg, #e60000 0%, #b30000 100%); /* Rojo StreamingMF */
+    color: #ffffff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s;
+}
+
+/* Efecto al pasar el cursor */
+.btn-primary:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(230, 0, 0, 0.3);
+}
+
+/* Efecto al hacer clic */
+.btn-primary:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+/* Estado deshabilitado (Cuando dice "Guardando...") */
+.btn-primary:disabled {
+    background: #9ca3af; /* Se vuelve gris */
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: 0.8;
+}
